@@ -27,14 +27,14 @@ registration() async{
       try{
         UserCredential userCredential=await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailorno, password: password);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Register Successfully',style: TextStyle(fontSize: 20),)));
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>loginPage()));
       }on FirebaseAuthException catch(e){
-        if(e.code=='weak-password'){
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              backgroundColor:Colors.green,content: Text('Password is to weak',style: TextStyle(fontSize: 20),)));
-        }else if(e.code=="Email already exist"){
+        if(e.code=='email-already-in-use'){
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               backgroundColor:Colors.green,content: Text('Email already exist',style: TextStyle(fontSize: 20),)));
+        }else if(e.code=='weak-password'){
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              backgroundColor:Colors.green,content: Text('Password is to weak',style: TextStyle(fontSize: 20),)));
         }
       }
     }
