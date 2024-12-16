@@ -1,35 +1,35 @@
-
-
 import 'package:flutter/material.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
 
   @override
-  State<home> createState() => _homeState();
+  State<home> createState() => _HomePageState();
 }
 
-class _homeState extends State<home> {
+class _HomePageState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('WasteWisePro'),
+        title: const Text('WasteWisePro'),
+        backgroundColor: Colors.green,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Stack(
               alignment: Alignment.topRight,
               children: [
-                Icon(Icons.shopping_cart),
-                CircleAvatar(
-                  radius: 8,
-                  backgroundColor: Colors.red,
-                  child: Text(
-                    '2',
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.white,
+                const Icon(Icons.shopping_cart),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: CircleAvatar(
+                    radius: 8,
+                    backgroundColor: Colors.red,
+                    child: const Text(
+                      '2',
+                      style: TextStyle(fontSize: 10, color: Colors.white),
                     ),
                   ),
                 ),
@@ -39,209 +39,198 @@ class _homeState extends State<home> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // Hero Banner
-            Stack(
-              children: [
-                Image.asset(
-                  'assets/images/hero_banner.jpg',
-                  fit: BoxFit.cover,
-                  height: 200,
-                ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                    padding: EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.8),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'PROTECT OUR HOME',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.green,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          'STOP throwing waste on unauthorized places!',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          'Introducing Monthly, Weekly, Special Day Door step Pickups',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 16),
-
-            // Subscription and Special Days Section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green.withOpacity(0.5),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 32,
-                      vertical: 16,
-                    ),
-                  ),
-                  child: Text(
-                    'Subscriptions',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green.withOpacity(0.5),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 32,
-                      vertical: 16,
-                    ),
-                  ),
-                  child: Text(
-                    'Special Days',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 16),
-
-            // Recent Updates Section
-            Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: Offset(0, 3),
-                  ),
-                ],
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Image.asset(
+                'assets/images/hero_banner.jpg',
+                fit: BoxFit.cover,
+                height: 250,
+                width: double.infinity,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              const SizedBox(height: 16),
+              const Text(
+                'Welcome to WasteWisePro',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Make a difference by recycling with our easy pickup service. Choose a subscription or pickup schedule that fits your needs.',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black54,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              // Subscription and Special Days Section
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    'Recent Updates',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  // Upcoming Pick Up
-                  Card(
-                    child: ListTile(
-                      leading: Icon(Icons.schedule),
-                      title: Text(
-                        'Upcoming Pick Up',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.green[700],
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 16,
                       ),
-                      trailing: Icon(Icons.arrow_forward_ios),
-                      subtitle: Text('Today, 10:00 AM'),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      elevation: 5,
+                    ),
+                    child: const Text(
+                      'Subscriptions',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.green[700],
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 16,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      elevation: 5,
+                    ),
+                    child: const Text(
+                      'Special Days',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-            SizedBox(height: 16),
-
-            // Videos Section
-            Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Videos',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+              const SizedBox(height: 16),
+              // Recent Updates Section
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
                     ),
-                  ),
-                  SizedBox(height: 16),
-                  // Video Card
-                  Card(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 200,
-                          child: Stack(
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Recent Updates',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    // Upcoming Pick Up
+                    Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: ListTile(
+                        leading: const Icon(Icons.schedule),
+                        title: const Text(
+                          'Upcoming Pick Up',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        subtitle: const Text('Today, 10:00 AM'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+              // Videos Section
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Videos',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    // Video Card
+                    Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        children: [
+                          Stack(
                             alignment: Alignment.center,
                             children: [
                               Image.asset(
                                 'assets/images/video_thumbnail.jpg',
+                                height: 200,
+                                width: double.infinity,
                                 fit: BoxFit.cover,
                               ),
-                              Icon(
+                              const Icon(
                                 Icons.play_circle,
                                 size: 60,
                                 color: Colors.white,
                               ),
                             ],
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Text(
-                            'How Waste Segregation Can Save Our Planet',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
+                          const Padding(
+                            padding: EdgeInsets.all(16),
+                            child: Text(
+                              'How Waste Segregation Can Save Our Planet',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 32),
-          ],
+              const SizedBox(height: 32),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -252,8 +241,7 @@ class _homeState extends State<home> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.map),
-            label: 'Map'
-            ,
+            label: 'Map',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),

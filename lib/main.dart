@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.green),
       home: splash_screen(
         debugShowCheckedModeBanner: false,
-        child: loginPage(
+        child: LoginPage(
         ),
 
       ),
